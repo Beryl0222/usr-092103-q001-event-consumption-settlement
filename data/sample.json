@@ -1,0 +1,9 @@
+{
+  "event_id": "092103-001-sample-001",
+  "event_type": "BUNDLE_ISSUED",
+  "aggregate_type": "event_edition",
+  "aggregate_id": "event_consumption_settlement-001",
+  "occurred_at": "2026-09-20T16:00:00+08:00",
+  "version": 1,
+  "summary": "赛事跨业消费清算联调样例"
+}
