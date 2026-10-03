@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "赛事跨业消费清算领域事件",
+  "description": "公共信封字段保持稳定：event_id/event_type/aggregate_type/aggregate_id/occurred_at/version/summary，业务数据统一放入 payload。事件类型与聚合类型的规范归属见 x-event-catalog；起点样例 BUNDLE_ISSUED 挂在 event_edition 上仍被允许（向后兼容）。",
   "type": "object",
   "required": [
     "event_id",
@@ -19,10 +20,18 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "EDITION_REGISTERED",
+        "EDITION_RESCHEDULED",
+        "MERCHANT_REGISTERED",
+        "CONTRACT_VERSION_EFFECTIVE",
         "BUNDLE_ISSUED",
+        "BUNDLE_MIGRATED",
         "REDEMPTION_RECORDED",
+        "REFUND_REQUESTED",
         "REFUND_CONFIRMED",
+        "SETTLEMENT_BATCH_OPENED",
         "SETTLEMENT_FROZEN",
+        "SETTLEMENT_PAID",
         "ADJUSTMENT_POSTED"
       ]
     },
@@ -30,8 +39,11 @@
       "type": "string",
       "enum": [
         "event_edition",
+        "merchant",
+        "merchant_contract",
         "benefit_bundle",
         "redemption_record",
+        "refund",
         "settlement_batch"
       ]
     },
@@ -45,12 +57,32 @@
     },
     "version": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "description": "聚合内单调递增版本，从 1 开始；并发写以 (aggregate_id, version) 唯一约束仲裁。"
     },
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "description": "事件业务数据；不同事件类型结构不同，金额一律为整数分。"
     }
+  },
+  "x-event-catalog": {
+    "EDITION_REGISTERED": "event_edition",
+    "EDITION_RESCHEDULED": "event_edition",
+    "MERCHANT_REGISTERED": "merchant",
+    "CONTRACT_VERSION_EFFECTIVE": "merchant_contract",
+    "BUNDLE_ISSUED": "benefit_bundle",
+    "BUNDLE_MIGRATED": "benefit_bundle",
+    "REDEMPTION_RECORDED": "redemption_record",
+    "REFUND_REQUESTED": "refund",
+    "REFUND_CONFIRMED": "refund",
+    "SETTLEMENT_BATCH_OPENED": "settlement_batch",
+    "SETTLEMENT_FROZEN": "settlement_batch",
+    "SETTLEMENT_PAID": "settlement_batch",
+    "ADJUSTMENT_POSTED": "settlement_batch"
   },
   "additionalProperties": true
 }

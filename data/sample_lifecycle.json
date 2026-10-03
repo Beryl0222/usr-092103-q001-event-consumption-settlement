@@ -1,0 +1,485 @@
+[
+  {
+    "event_id": "evt_0000000000000001",
+    "event_type": "EDITION_REGISTERED",
+    "aggregate_type": "event_edition",
+    "aggregate_id": "ED-2026-CITYRUN",
+    "occurred_at": "2026-10-04T04:21:36.409698+08:00",
+    "version": 1,
+    "summary": "登记赛事届次：2026 城市路跑",
+    "payload": {
+      "name": "2026 城市路跑",
+      "race_start": "2026-09-20T07:00:00+08:00",
+      "race_end": "2026-09-21T12:00:00+08:00",
+      "pre_start": "2026-09-10T00:00:00+08:00",
+      "post_end": "2026-09-27T23:59:59+08:00"
+    }
+  },
+  {
+    "event_id": "evt_0000000000000002",
+    "event_type": "MERCHANT_REGISTERED",
+    "aggregate_type": "merchant",
+    "aggregate_id": "M-GOODS",
+    "occurred_at": "2026-10-04T04:21:36.409925+08:00",
+    "version": 1,
+    "summary": "登记商户：场内特许商",
+    "payload": {
+      "name": "场内特许商",
+      "tax_withholding_bps": 600
+    }
+  },
+  {
+    "event_id": "evt_0000000000000003",
+    "event_type": "MERCHANT_REGISTERED",
+    "aggregate_type": "merchant",
+    "aggregate_id": "M-PLAZA",
+    "occurred_at": "2026-10-04T04:21:36.410064+08:00",
+    "version": 1,
+    "summary": "登记商户：商圈第二现场",
+    "payload": {
+      "name": "商圈第二现场",
+      "tax_withholding_bps": 600
+    }
+  },
+  {
+    "event_id": "evt_0000000000000004",
+    "event_type": "CONTRACT_VERSION_EFFECTIVE",
+    "aggregate_type": "merchant_contract",
+    "aggregate_id": "C-GOODS",
+    "occurred_at": "2026-10-04T04:21:36.410196+08:00",
+    "version": 1,
+    "summary": "合同 C-GOODS 第 1 版生效",
+    "payload": {
+      "merchant_id": "M-GOODS",
+      "edition_id": "ED-2026-CITYRUN",
+      "version_no": 1,
+      "effective_from": "2026-09-01T00:00:00+08:00",
+      "terms": {
+        "mode": "TIERED_SHARE",
+        "platform_fee_bps": 500,
+        "tiers": [
+          {
+            "up_to_cents": 100000,
+            "share_bps": 8000
+          },
+          {
+            "up_to_cents": 10000000,
+            "share_bps": 9000
+          }
+        ],
+        "monthly_guarantee_cents": 50000
+      },
+      "note": ""
+    }
+  },
+  {
+    "event_id": "evt_0000000000000005",
+    "event_type": "CONTRACT_VERSION_EFFECTIVE",
+    "aggregate_type": "merchant_contract",
+    "aggregate_id": "C-PLAZA",
+    "occurred_at": "2026-10-04T04:21:36.410342+08:00",
+    "version": 1,
+    "summary": "合同 C-PLAZA 第 1 版生效",
+    "payload": {
+      "merchant_id": "M-PLAZA",
+      "edition_id": "ED-2026-CITYRUN",
+      "version_no": 1,
+      "effective_from": "2026-09-01T00:00:00+08:00",
+      "terms": {
+        "mode": "FIXED",
+        "fixed_cents": 4000
+      },
+      "note": ""
+    }
+  },
+  {
+    "event_id": "evt_0000000000000006",
+    "event_type": "BUNDLE_ISSUED",
+    "aggregate_type": "benefit_bundle",
+    "aggregate_id": "B-1001",
+    "occurred_at": "2026-10-04T04:21:36.410497+08:00",
+    "version": 1,
+    "summary": "向观众 U-1001 发放权益包 B-1001",
+    "payload": {
+      "spectator_id": "U-1001",
+      "edition_id": "ED-2026-CITYRUN",
+      "items": [
+        {
+          "item_id": "I-PRE-PACKAGE",
+          "phase": "PRE_RACE",
+          "title": "赛前套餐券",
+          "face_value_cents": 20000,
+          "subsidy_cents": 5000,
+          "spectator_paid_cents": 15000,
+          "merchant_id": null,
+          "window_start": "2026-09-10T00:00:00+08:00",
+          "window_end": "2026-09-20T07:00:00+08:00"
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "evt_0000000000000008",
+    "event_type": "REDEMPTION_RECORDED",
+    "aggregate_type": "redemption_record",
+    "aggregate_id": "rdm_0000000000000007",
+    "occurred_at": "2026-10-04T04:21:36.410712+08:00",
+    "version": 1,
+    "summary": "核销 rdm_0000000000000007（2 个商户分项，离线=False）",
+    "payload": {
+      "bundle_id": "B-1001",
+      "spectator_id": "U-1001",
+      "edition_id": "ED-2026-CITYRUN",
+      "scan_code_id": "QR-20260915-0007",
+      "scanned_at": "2026-09-15T10:32:00+08:00",
+      "offline": false,
+      "parts": [
+        {
+          "part_index": 0,
+          "merchant_id": "M-GOODS",
+          "store_id": "STORE-G01",
+          "entries": [
+            {
+              "item_id": "I-PRE-PACKAGE",
+              "amount_cents": 12000
+            }
+          ],
+          "gross_cents": 12000
+        },
+        {
+          "part_index": 1,
+          "merchant_id": "M-PLAZA",
+          "store_id": "STORE-P07",
+          "entries": [
+            {
+              "item_id": "I-PRE-PACKAGE",
+              "amount_cents": 8000
+            }
+          ],
+          "gross_cents": 8000
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "evt_0000000000000009",
+    "event_type": "SETTLEMENT_BATCH_OPENED",
+    "aggregate_type": "settlement_batch",
+    "aggregate_id": "BAT-2026-09",
+    "occurred_at": "2026-10-04T04:21:36.411045+08:00",
+    "version": 1,
+    "summary": "开启结算批次 BAT-2026-09",
+    "payload": {
+      "edition_id": "ED-2026-CITYRUN",
+      "period_start": "2026-09-01T00:00:00+08:00",
+      "period_end": "2026-09-30T23:59:59+08:00"
+    }
+  },
+  {
+    "event_id": "evt_000000000000000a",
+    "event_type": "SETTLEMENT_FROZEN",
+    "aggregate_type": "settlement_batch",
+    "aggregate_id": "BAT-2026-09",
+    "occurred_at": "2026-10-04T04:21:36.411225+08:00",
+    "version": 2,
+    "summary": "冻结结算批次 BAT-2026-09，共 5 行",
+    "payload": {
+      "period_start": "2026-09-01T00:00:00+08:00",
+      "period_end": "2026-09-30T23:59:59+08:00",
+      "frozen_at": "2026-10-04T04:21:36.411225+08:00",
+      "totals": {
+        "by_merchant": {
+          "M-GOODS": {
+            "gross_cents": 12000,
+            "consumption_cents": 9600,
+            "reversal_cents": 0,
+            "topup_cents": 0,
+            "guarantee_topup_cents": 40400,
+            "tax_cents": 3000,
+            "payable_cents": 47000
+          },
+          "M-PLAZA": {
+            "gross_cents": 8000,
+            "consumption_cents": 4000,
+            "reversal_cents": 0,
+            "topup_cents": 0,
+            "guarantee_topup_cents": 0,
+            "tax_cents": 240,
+            "payable_cents": 3760
+          }
+        },
+        "gross_cents": 20000,
+        "payable_cents": 50760,
+        "tax_cents": 3240,
+        "platform_fee_cents": 4600,
+        "subsidy_cents": 5000,
+        "line_count": 5
+      },
+      "lines": [
+        {
+          "line_id": "BAT-2026-09-L001",
+          "merchant_id": "M-GOODS",
+          "kind": "CONSUMPTION",
+          "amount_cents": 9600,
+          "tax_cents": 0,
+          "contract_version_no": 1,
+          "redemption_id": "rdm_0000000000000007",
+          "part_index": 0,
+          "refund_id": null,
+          "source_batch_id": null,
+          "source_line_id": null,
+          "detail": {
+            "gross_cents": 12000,
+            "platform_fee_cents": 600,
+            "mode": "TIERED_SHARE",
+            "share_bps": 8000,
+            "tier_index": 0,
+            "scanned_at": "2026-09-15T10:32:00+08:00",
+            "store_id": "STORE-G01",
+            "bundle_id": "B-1001",
+            "spectator_id": "U-1001",
+            "subsidy_cents": 3000,
+            "entries": [
+              {
+                "item_id": "I-PRE-PACKAGE",
+                "amount_cents": 12000
+              }
+            ],
+            "terms_snapshot": {
+              "mode": "TIERED_SHARE",
+              "platform_fee_bps": 500,
+              "tiers": [
+                {
+                  "up_to_cents": 100000,
+                  "share_bps": 8000
+                },
+                {
+                  "up_to_cents": 10000000,
+                  "share_bps": 9000
+                }
+              ],
+              "monthly_guarantee_cents": 50000
+            }
+          }
+        },
+        {
+          "line_id": "BAT-2026-09-L002",
+          "merchant_id": "M-PLAZA",
+          "kind": "CONSUMPTION",
+          "amount_cents": 4000,
+          "tax_cents": 0,
+          "contract_version_no": 1,
+          "redemption_id": "rdm_0000000000000007",
+          "part_index": 1,
+          "refund_id": null,
+          "source_batch_id": null,
+          "source_line_id": null,
+          "detail": {
+            "gross_cents": 8000,
+            "platform_fee_cents": 4000,
+            "mode": "FIXED",
+            "share_bps": 0,
+            "tier_index": 0,
+            "scanned_at": "2026-09-15T10:32:00+08:00",
+            "store_id": "STORE-P07",
+            "bundle_id": "B-1001",
+            "spectator_id": "U-1001",
+            "subsidy_cents": 2000,
+            "entries": [
+              {
+                "item_id": "I-PRE-PACKAGE",
+                "amount_cents": 8000
+              }
+            ],
+            "terms_snapshot": {
+              "mode": "FIXED",
+              "fixed_cents": 4000
+            }
+          }
+        },
+        {
+          "line_id": "BAT-2026-09-L003",
+          "merchant_id": "M-GOODS",
+          "kind": "GUARANTEE_TOPUP",
+          "amount_cents": 40400,
+          "tax_cents": 0,
+          "contract_version_no": 1,
+          "redemption_id": null,
+          "part_index": null,
+          "refund_id": null,
+          "source_batch_id": null,
+          "source_line_id": null,
+          "detail": {
+            "period_month": "2026-09",
+            "earned_cents_in_month": 9600,
+            "reason": "MONTHLY_GUARANTEE_SHORTFALL"
+          }
+        },
+        {
+          "line_id": "BAT-2026-09-L004",
+          "merchant_id": "M-GOODS",
+          "kind": "TAX",
+          "amount_cents": -3000,
+          "tax_cents": 0,
+          "contract_version_no": null,
+          "redemption_id": null,
+          "part_index": null,
+          "refund_id": null,
+          "source_batch_id": null,
+          "source_line_id": null,
+          "detail": {
+            "period_month": "2026-09",
+            "withholding_bps": 600,
+            "tax_base_cents": 50000
+          }
+        },
+        {
+          "line_id": "BAT-2026-09-L005",
+          "merchant_id": "M-PLAZA",
+          "kind": "TAX",
+          "amount_cents": -240,
+          "tax_cents": 0,
+          "contract_version_no": null,
+          "redemption_id": null,
+          "part_index": null,
+          "refund_id": null,
+          "source_batch_id": null,
+          "source_line_id": null,
+          "detail": {
+            "period_month": "2026-09",
+            "withholding_bps": 600,
+            "tax_base_cents": 4000
+          }
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "evt_000000000000000b",
+    "event_type": "SETTLEMENT_PAID",
+    "aggregate_type": "settlement_batch",
+    "aggregate_id": "BAT-2026-09",
+    "occurred_at": "2026-10-04T04:21:36.411884+08:00",
+    "version": 3,
+    "summary": "批次 BAT-2026-09 已支付",
+    "payload": {
+      "paid_at": "2026-10-04T04:21:36.411858+08:00"
+    }
+  },
+  {
+    "event_id": "evt_000000000000000d",
+    "event_type": "REFUND_REQUESTED",
+    "aggregate_type": "refund",
+    "aggregate_id": "rfd_000000000000000c",
+    "occurred_at": "2026-10-04T04:21:36.412150+08:00",
+    "version": 1,
+    "summary": "退款申请 rfd_000000000000000c（MERCHANT_NONPERFORMANCE）",
+    "payload": {
+      "bundle_id": "B-1001",
+      "spectator_id": "U-1001",
+      "edition_id": "ED-2026-CITYRUN",
+      "reason": "MERCHANT_NONPERFORMANCE",
+      "items": [
+        {
+          "item_id": "I-PRE-PACKAGE",
+          "amount_cents": 6000
+        }
+      ],
+      "note": "赛前套餐中两项预约服务未提供"
+    }
+  },
+  {
+    "event_id": "evt_000000000000000e",
+    "event_type": "REFUND_CONFIRMED",
+    "aggregate_type": "refund",
+    "aggregate_id": "rfd_000000000000000c",
+    "occurred_at": "2026-10-04T04:21:36.412444+08:00",
+    "version": 2,
+    "summary": "退款确认 rfd_000000000000000c，游客到账 4500 分",
+    "payload": {
+      "items": [
+        {
+          "item_id": "I-PRE-PACKAGE",
+          "amount_cents": 6000,
+          "spectator_refund_cents": 4500,
+          "subsidy_clawback_cents": 1500
+        }
+      ],
+      "spectator_amount_cents": 4500,
+      "note": ""
+    }
+  },
+  {
+    "event_id": "evt_000000000000000f",
+    "event_type": "SETTLEMENT_BATCH_OPENED",
+    "aggregate_type": "settlement_batch",
+    "aggregate_id": "BAT-2026-10",
+    "occurred_at": "2026-10-04T04:21:36.412760+08:00",
+    "version": 1,
+    "summary": "开启结算批次 BAT-2026-10",
+    "payload": {
+      "edition_id": "ED-2026-CITYRUN",
+      "period_start": "2026-10-01T00:00:00+08:00",
+      "period_end": "2026-10-31T23:59:59+08:00"
+    }
+  },
+  {
+    "event_id": "evt_0000000000000010",
+    "event_type": "SETTLEMENT_FROZEN",
+    "aggregate_type": "settlement_batch",
+    "aggregate_id": "BAT-2026-10",
+    "occurred_at": "2026-10-04T04:21:36.413009+08:00",
+    "version": 2,
+    "summary": "冻结结算批次 BAT-2026-10，共 1 行",
+    "payload": {
+      "period_start": "2026-10-01T00:00:00+08:00",
+      "period_end": "2026-10-31T23:59:59+08:00",
+      "frozen_at": "2026-10-04T04:21:36.413009+08:00",
+      "totals": {
+        "by_merchant": {
+          "M-GOODS": {
+            "gross_cents": 0,
+            "consumption_cents": 0,
+            "reversal_cents": 4800,
+            "topup_cents": 0,
+            "guarantee_topup_cents": 0,
+            "tax_cents": 0,
+            "payable_cents": -4800
+          }
+        },
+        "gross_cents": 0,
+        "payable_cents": -4800,
+        "tax_cents": 0,
+        "platform_fee_cents": -300,
+        "subsidy_cents": 0,
+        "line_count": 1
+      },
+      "lines": [
+        {
+          "line_id": "BAT-2026-10-L001",
+          "merchant_id": "M-GOODS",
+          "kind": "REVERSAL",
+          "amount_cents": -4800,
+          "tax_cents": 0,
+          "contract_version_no": 1,
+          "redemption_id": "rdm_0000000000000007",
+          "part_index": 0,
+          "refund_id": "rfd_000000000000000c",
+          "source_batch_id": "BAT-2026-09",
+          "source_line_id": "BAT-2026-09-L001",
+          "detail": {
+            "gross_cents": -6000,
+            "platform_fee_cents": -300,
+            "entries": [
+              {
+                "item_id": "I-PRE-PACKAGE",
+                "amount_cents": 6000
+              }
+            ],
+            "reason": "REFUND_AFTER_OR_IN_PERIOD"
+          }
+        }
+      ]
+    }
+  }
+]

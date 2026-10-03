@@ -7,3 +7,6 @@ __pycache__/
 *.py[cod]
 dist/
 coverage/
+*.db
+*.db-wal
+*.db-shm

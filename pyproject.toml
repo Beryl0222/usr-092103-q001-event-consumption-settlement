@@ -1,5 +1,5 @@
 [project]
-name = "domain-event-contract"
-version = "0.1.0"
-description = "领域事件基础校验"
+name = "event-cross-industry-settlement"
+version = "0.2.0"
+description = "赛事跨业消费清算后端：事件溯源、核销幂等、合同版本、结算冲正与多角色视图"
 requires-python = ">=3.11"
